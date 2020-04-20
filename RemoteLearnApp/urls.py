@@ -16,9 +16,19 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 from django.conf.urls import include
+from RemoteLearnApp import urls
+
 
 urlpatterns = [
-	url(r'^jet', include('jet.urls', 'jet')),
-    url(r'^admin/', admin.site.urls)
- ]
+    url(r'^admin/', admin.site.urls),    	
+   # url(r'^$', views.index, name='site_index')
+    ]
 
+
+"""
+To zrób,odpowiedź z neta:
+
+  1. Bootstrap mozesz zainstalowac ale mozesz tez w pliku css uzyc CDN czyli jeden link zalatwia wszystko. Strona podczas ladowania pobiera nie jako tego bootstrapa wiec jesli chciales bootstrapa tylko do strony to wywal to i uzyj CDN w pliku css.
+2. Nie znajduje u Ciebie katalogu templates gdzie przechowujesz pliki html i do tego w settingsach musisz miec podana sciezke do obslugi tego
+3. We views.py musisz jakos miec uwzgledniony ten template i do tego urls.py do zrobienia zeby django wiedzialo jak obslugiwac urly tworzone przez Ciebie
+4. Katalog static brak gdzie przechowujesz pliki statyczne w tym plik css"""

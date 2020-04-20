@@ -3,6 +3,8 @@ from __future__ import unicode_literals
 
 from django.db import models
 
+from django.contrib.auth.models import (BaseUserManager, AbstractBaseUser)
+
 from django.contrib.auth.models import User
 
 from django.contrib.auth.models import timezone
@@ -15,10 +17,12 @@ class Subject(models.Model):
 class Teacher(models.Model):
 	imie = models.CharField(max_length=30)
 	nazwisko = models.CharField(max_length=30)
+	on_delete = models.CASCADE
 
 class Topic(models.Model):
 	subject = models.CharField(max_length=255)
 	last_updated = models.DateTimeField(auto_now_add=True)
+	on_delete = models.CASCADE
 	
 	#starter = models.ForeignKey(User, related_name='topics')
 
